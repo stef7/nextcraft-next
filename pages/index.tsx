@@ -3,9 +3,12 @@ import Image from "next/image";
 import Head from "next/head";
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
-import { GetStaticProps } from "next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { Entries } from "../generated/graphql-types";
 
-export default function Home({ entries }) {
+export default function Home({
+	entries,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
 	return (
 		<>
 			<Head>
@@ -14,20 +17,26 @@ export default function Home({ entries }) {
 
 			<main id="content" role="main">
 				<h1>Nextcraft</h1>
-				{entries?.map((entry) => (
-					<p>{entry.title}</p>
+				{entries.map((entry) => (
+					<p key={entry.uid}>
+						Entry title from Craft CMS: <br />
+						{entry.title}
+					</p>
 				))}
 			</main>
 		</>
 	);
 }
 
-export const getStaticProps: GetStaticProps = async function () {
-	const { data } = await client.query({
+export const getStaticProps: GetStaticProps<{
+	entries: Entries["entries"];
+}> = async function () {
+	const { data } = await client.query<Entries>({
 		query: gql`
 			query Entries {
 				entries {
 					title
+					uid
 				}
 			}
 		`,
