@@ -6,9 +6,9 @@
     "dev": "next dev -p 3500",
     "build": "next build",
     "start": "next start",
-    "gen:schema": "npx apollo schema:download generated/graphql-schema.json",
-    "gen:types": "npx apollo codegen:generate generated/graphql-types.ts --localSchemaFile=generated/graphql-schema.json --outputFlat --target=typescript --includes=\"pages/**/*.{js,jsx,ts,tsx}\" --tagName=gql",
-    "gen:types-watch": "npx apollo codegen:generate generated/graphql-types.ts --localSchemaFile=generated/graphql-schema.json --outputFlat --target=typescript --includes=\"pages/**/*.{js,jsx,ts,tsx}\" --tagName=gql --watch",
+    "gen:schema": "npx apollo schema:download src/generated/graphql-schema.json",
+    "gen:types": "npx apollo codegen:generate src/generated/graphql-types.ts --localSchemaFile=src/generated/graphql-schema.json --outputFlat --target=typescript --includes=\"src/**/*.{js,jsx,ts,tsx}\" --excludes=\"src/generated/*\" --tagName=gql",
+    "gen:types-watch": "npx apollo codegen:generate src/generated/graphql-types.ts --localSchemaFile=src/generated/graphql-schema.json --outputFlat --target=typescript --includes=\"src/**/*.{js,jsx,ts,tsx}\" --excludes=\"src/generated/*\" --tagName=gql --watch",
     "gen": "yarn gen:schema && yarn gen:types",
     "gen:watch": "yarn gen:schema && yarn gen:types-watch"
   },

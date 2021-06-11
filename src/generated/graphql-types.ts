@@ -4,10 +4,10 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: Entries
+// GraphQL query operation: HomeQuery
 // ====================================================
 
-export interface Entries_entries {
+export interface HomeQuery_entries {
   __typename: "home_home_Entry";
   /**
    * The element’s title.
@@ -19,11 +19,11 @@ export interface Entries_entries {
   uid: string | null;
 }
 
-export interface Entries {
+export interface HomeQuery {
   /**
    * This query is used to query for entries.
    */
-  entries: (Entries_entries | null)[] | null;
+  entries: (HomeQuery_entries | null)[] | null;
 }
 
 /* tslint:disable */

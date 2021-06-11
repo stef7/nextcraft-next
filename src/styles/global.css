@@ -1,10 +1,16 @@
 html {
 	font-family: sans-serif;
-	font-size: 3rem;
+	font-size: 2rem;
 	background: silver;
 	color: rebeccapurple;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	min-height: 100%;
+}
+
+button {
+	font-size: inherit;
+	font-family: inherit;
+	cursor: pointer;
 }
