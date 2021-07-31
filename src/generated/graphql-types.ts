@@ -10,13 +10,13 @@
 export interface HomeQuery_entries {
   __typename: "home_home_Entry";
   /**
-   * The element’s title.
-   */
-  title: string | null;
-  /**
    * The uid of the entity
    */
   uid: string | null;
+  /**
+   * The element’s title.
+   */
+  title: string | null;
 }
 
 export interface HomeQuery {
